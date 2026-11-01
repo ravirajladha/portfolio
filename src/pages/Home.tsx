@@ -4,6 +4,7 @@ import { posts, formatDate } from '../lib/posts'
 import { CountUp, Reveal, Typed, WordsIn } from '../components/Motion'
 import AttentionFigure from '../components/AttentionFigure'
 import SectorTabs from '../components/SectorTabs'
+import Ride from '../components/Ride'
 
 const H = ({ n, children }: { n?: number; children: string }) => (
   <Reveal><h2>{n !== undefined && <span>{n}</span>}{children}</h2></Reveal>
@@ -33,6 +34,8 @@ export default function Home() {
           <p>{profile.abstract}</p>
         </Reveal>
       </section>
+
+      <Ride />
 
       <Reveal><AttentionFigure /></Reveal>
 

@@ -1,26 +1,28 @@
 :root {
-  --paper: #fbfaf6;
+  --paper: #fff6f0;
   --card: #ffffff;
-  --ink: #1b1b19;
-  --muted: #5f5e58;
-  --rule: #dedbd1;
-  --accent: #3b5bdb;
+  --ink: #2a0f1a;
+  --muted: #7a5a66;
+  --rule: #f0dbe0;
+  --accent: #b0234f;
   --accent-ink: #ffffff;
-  --heat: 59, 91, 219;
+  --pink: #ff5c8a;
+  --heat: 176, 35, 79;
   --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #121311;
-    --card: #1a1b19;
-    --ink: #ebe9e2;
-    --muted: #9c9a92;
-    --rule: #2e2f2b;
-    --accent: #8ea2ff;
-    --accent-ink: #10131f;
-    --heat: 142, 162, 255;
+    --paper: #160a10;
+    --card: #21111a;
+    --ink: #fbe9ef;
+    --muted: #b08f9b;
+    --rule: #3a2230;
+    --accent: #ff6b98;
+    --accent-ink: #1a0710;
+    --pink: #ff8fb1;
+    --heat: 255, 107, 152;
     color-scheme: dark;
   }
 }
@@ -220,3 +222,31 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0 20px; }
 .quiz { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--rule); }
 .quiz p { margin: 0 0 10px !important; }
 .answer { padding: 10px 14px; border-radius: 6px; background: rgba(var(--heat), .1); }
+
+/* The Ride: scroll story */
+.ride { position: relative; margin: 40px calc(50% - 50vw) 0; width: 100vw; }
+.ride-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; background: radial-gradient(ellipse at 30% 40%, rgba(var(--heat), .14), transparent 60%), var(--paper); }
+.ride-label { position: absolute; top: 80px; left: 0; right: 0; text-align: center; }
+.ride-track { position: absolute; left: 30vw; bottom: calc(22vh + 30px); display: flex; gap: 0; }
+.stop { position: relative; width: 42vw; max-width: 42vw; padding: 0 3vw 40px 0; transform-origin: bottom left; }
+.stop-year { font-family: var(--mono); font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 600; line-height: 1; background: linear-gradient(90deg, var(--accent), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stop h3 { margin: 6px 0 4px; font-size: clamp(1.1rem, 2.6vw, 1.5rem); }
+.stop p { margin: 0; color: var(--muted); font-size: clamp(.9rem, 2vw, 1.05rem); max-width: 32ch; }
+.stop-pin { position: absolute; left: 0; bottom: 0; width: 2px; height: 28px; background: var(--accent); }
+.stop-pin::after { content: ""; position: absolute; left: -5px; bottom: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 0 4px rgba(var(--heat), .2); }
+.road { position: absolute; left: 0; right: 0; bottom: 22vh; height: 4px; background: var(--rule); }
+.road-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--pink)); }
+.cyclist { position: absolute; left: calc(30vw - 110px); bottom: calc(22vh + 2px); width: 120px; height: 80px; overflow: visible; }
+.cyclist .wheel { transform-box: fill-box; transform-origin: center; }
+.cyclist .tyre, .cyclist .spoke, .cyclist .frame, .cyclist .rider { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.cyclist .tyre { stroke: var(--ink); stroke-width: 3; }
+.cyclist .spoke { stroke: var(--muted); stroke-width: 1; }
+.cyclist .frame { stroke: var(--accent); stroke-width: 3.5; }
+.cyclist .rider { stroke: var(--ink); stroke-width: 4; }
+.cyclist .head { fill: var(--pink); }
+@media (max-width: 700px) {
+  .ride-track { left: 18vw; }
+  .stop { width: 70vw; max-width: 70vw; }
+  .cyclist { left: calc(18vw - 90px); width: 90px; height: 60px; }
+}
+html, body { overflow-x: clip; }

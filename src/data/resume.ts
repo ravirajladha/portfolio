@@ -166,3 +166,14 @@ export const now = [
   { when: '2026', text: 'Built ML scoring and NLP proofs-of-concept for vehicle inspections at MFCWL.' },
   { when: 'Jul 2025', text: 'Joined Mahindra First Choice Wheels and started the M.Tech at BITS Pilani.' },
 ]
+
+// "The Ride": scroll story on the home page, in order.
+export const journey = [
+  { year: '2016', title: 'Shillong', text: 'B.Tech in Energy Engineering at NEHU. Learned to experiment carefully.' },
+  { year: '2019', title: 'Research', text: 'Internship at IASST and a thesis on carbon materials made by Chemical Vapor Deposition.' },
+  { year: '2021', title: 'Switch to code', text: 'Python Full Stack at Pyspiders. First commit, first bug, hooked.' },
+  { year: '2022', title: 'KODS', text: 'Architected 13 real-time apps for 10,000+ monthly users.' },
+  { year: '2025', title: 'Performer of the Year', text: 'Recognised for delivery and system design leadership.' },
+  { year: '2025', title: 'Mahindra + BITS', text: 'Full-stack at Mahindra First Choice and an M.Tech in AI & ML.' },
+  { year: '2026', title: 'ML in production', text: 'XGBoost scoring, an NLP pipeline and a CTO award. Next stop: AI engineer →' },
+]
