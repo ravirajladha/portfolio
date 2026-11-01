@@ -54,7 +54,7 @@ export function CountUp({ to }: { to: number }) {
 }
 
 /** Types and deletes each phrase in turn. */
-export function Typed({ words }: { words: string[] }) {
+export function Typed({ words, onKey }: { words: string[]; onKey?: (key: string) => void }) {
   const reduce = useReducedMotion()
   const [text, setText] = useState('')
 
@@ -64,6 +64,7 @@ export function Typed({ words }: { words: string[] }) {
     const step = () => {
       n += deleting ? -1 : 1
       setText(words[w].slice(0, n))
+      if (!deleting && n > 0) onKey?.(words[w][n - 1].toUpperCase())
       let wait = deleting ? 35 : 70
       if (!deleting && n === words[w].length) { deleting = true; wait = 1600 }
       else if (deleting && n === 0) { deleting = false; w = (w + 1) % words.length; wait = 300 }
@@ -71,7 +72,7 @@ export function Typed({ words }: { words: string[] }) {
     }
     timer = setTimeout(step, 1200)
     return () => clearTimeout(timer)
-  }, [words, reduce])
+  }, [words, reduce, onKey])
 
   return <div className="typed mono"><span className="muted">currently: </span>{text}<span className="caret">▍</span></div>
 }

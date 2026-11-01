@@ -1,4 +1,8 @@
+import { lazy, Suspense, useCallback, useRef } from 'react'
 import { Link } from 'react-router'
+import type { KeyStore } from '../components/KeyboardHero'
+
+const KeyboardHero = lazy(() => import('../components/KeyboardHero'))
 import { ai, experience, now, profile, results, sectors, stack, training } from '../data/resume'
 import { posts, formatDate } from '../lib/posts'
 import { CountUp, Reveal, Typed, WordsIn } from '../components/Motion'
@@ -12,16 +16,23 @@ const H = ({ n, children }: { n?: number; children: string }) => (
 
 export default function Home() {
   const projectCount = sectors.reduce((sum, s) => sum + s.projects.length, 0)
+  const keys = useRef<KeyStore>({ key: '', t: 0 })
+  const onKey = useCallback((k: string) => { keys.current.key = k; keys.current.t = performance.now() }, [])
 
   return (
     <main>
       <section className="title-block">
         <Reveal><p className="preprint">Preprint · {profile.location} · v2026.11</p></Reveal>
         <WordsIn text={profile.title} />
-        <Reveal delay={0.4} className="authors">
-          <div><strong>{profile.name}</strong><sup>*</sup></div>
-          <div className="affil">{profile.affiliation[0]}<br />{profile.affiliation[1]}</div>
-          <Typed words={profile.typed} />
+        <Reveal delay={0.4} className="name-card">
+          <div className="authors">
+            <div><strong>{profile.name}</strong><sup>*</sup></div>
+            <div className="affil">{profile.affiliation[0]}<br />{profile.affiliation[1]}</div>
+            <Typed words={profile.typed} onKey={onKey} />
+          </div>
+          <Suspense fallback={<div className="keyboard-3d" />}>
+            <KeyboardHero store={keys.current} />
+          </Suspense>
         </Reveal>
         <Reveal delay={0.5} className="actions">
           <a className="button primary" href="#contact">Get in touch</a>

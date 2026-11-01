@@ -250,3 +250,13 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0 20px; }
   .cyclist { left: calc(18vw - 90px); width: 90px; height: 60px; }
 }
 html, body { overflow-x: clip; }
+
+/* Name card with animated gradient border + 3D keyboard */
+@property --spin { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.name-card { position: relative; max-width: 620px; margin: 0 auto; padding: 22px 18px 6px; border-radius: 18px; background: var(--card); isolation: isolate; }
+.name-card::before { content: ""; position: absolute; inset: -2px; z-index: -1; border-radius: 20px; background: conic-gradient(from var(--spin), var(--accent), var(--pink), #ffb3c8, var(--accent)); animation: spin-border 6s linear infinite; }
+.name-card::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 18px; background: var(--card); }
+.name-card { box-shadow: 0 20px 60px -20px rgba(var(--heat), .45); }
+@keyframes spin-border { to { --spin: 360deg; } }
+.keyboard-3d { height: clamp(200px, 38vw, 300px); margin-top: 4px; cursor: grab; }
+@media (prefers-reduced-motion: reduce) { .name-card::before { animation: none; } }
