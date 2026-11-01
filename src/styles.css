@@ -8,7 +8,8 @@
   --accent-ink: #ffffff;
   --pink: #ff5c8a;
   --heat: 176, 35, 79;
-  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
   color-scheme: light;
 }
@@ -260,3 +261,9 @@ html, body { overflow-x: clip; }
 @keyframes spin-border { to { --spin: 360deg; } }
 .keyboard-3d { height: clamp(200px, 38vw, 300px); margin-top: 4px; cursor: grab; }
 @media (prefers-reduced-motion: reduce) { .name-card::before { animation: none; } }
+
+/* Display font for headings */
+h1, h2, h3, .authors strong, .stop h3, .mark { font-family: var(--display); }
+h1 { font-weight: 800; letter-spacing: -.035em; }
+.paper-section h2, .design header h3, .card h3, .entry h3 { font-weight: 700; letter-spacing: -.02em; }
+body { font-size: 1.05rem; line-height: 1.65; }
