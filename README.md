@@ -1,17 +1,29 @@
 # attentionisallyouneed.in
 
-A dependency-free PHP portfolio for Ravi Raj Ladha.
+Portfolio and blog of Ravi Raj Ladha: a React + Vite + TypeScript single-page app.
 
 [![CI](https://github.com/ravirajladha/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/ravirajladha/portfolio/actions/workflows/ci.yml)
 
 ## Run locally
 
-Start Apache in XAMPP, then open `http://localhost/attentionisallyouneed.in/`.
+```bash
+npm install
+npm run dev        # http://localhost:5173
+```
 
-## Contact email
+## Edit content
 
-The form posts to `send-contact.php`, validates the fields, and calls PHP's `mail()` function. Local XAMPP usually needs SMTP configured before it can deliver mail. On AWS, configure the server's mail transfer agent or replace `mail()` with Amazon SES/SMTP. Verify `ravirajladha@gmail.com` as an SES identity if the SES account is still in sandbox mode.
+- **Résumé content** (experience, sectors, skills, AI/ML, "Now" feed): `src/data/resume.ts`
+- **Blog posts**: add a Markdown file to `src/content/blog/` with the front-matter shown in `src/lib/posts.ts`
+- **Résumé PDF**: replace `public/Resume_Ravi_Raj_Ladha.pdf`
+- **Styles**: `src/styles.css` · **Animations**: `src/components/Motion.tsx`
 
-## Extend the site
+## Deploy
 
-Add new sections inside `<main>` in `index.php` and add the matching navigation link. Project cards can follow the existing `.skill-grid` or `.timeline` patterns.
+```bash
+npm run build
+scp -r dist/* secret-hair-care-staging:/tmp/portfolio-dist/
+ssh secret-hair-care-staging 'sudo rsync -a --delete /tmp/portfolio-dist/ /var/www/resume/ && sudo chown -R www-data:www-data /var/www/resume'
+```
+
+Nginx serves `/var/www/resume` with `try_files $uri $uri/ /index.html;` so client-side routes like `/blog/<slug>` work on refresh.

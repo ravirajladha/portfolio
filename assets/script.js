@@ -1,1 +1,0 @@
-const header=document.querySelector('.site-header');const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>{const open=header.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{header.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
