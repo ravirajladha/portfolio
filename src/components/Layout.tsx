@@ -7,6 +7,7 @@ const nav = [
   { to: '/#experience', label: 'Experience' },
   { to: '/#sectors', label: 'Sectors' },
   { to: '/#ai', label: 'AI/ML' },
+  { to: '/projects', label: 'Projects' },
   { to: '/blog', label: 'Writing' },
   { to: '/#now', label: 'Now' },
   { to: '/#contact', label: 'Contact' },

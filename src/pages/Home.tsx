@@ -74,6 +74,7 @@ export default function Home() {
         <H n={3}>Work by Sector</H>
         <Reveal><p>{projectCount} projects across {sectors.length} domains. Filter by sector, or browse them all.</p></Reveal>
         <Reveal><SectorTabs sectors={sectors} /></Reveal>
+        <Reveal><p className="more"><Link className="button primary" to="/projects">More projects + interactive system designs →</Link></p></Reveal>
       </section>
 
       <section id="ai" className="paper-section">
