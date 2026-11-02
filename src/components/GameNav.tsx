@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
+import ThemeToggle from './ThemeToggle'
 
 // Each home section is a "level". Visiting one for the first time unlocks it.
 const levels = [
@@ -78,6 +79,7 @@ export default function GameNav() {
           <span className="mono">XP</span>
           <div className="hud-bar"><motion.div className="hud-fill" animate={{ width: `${xp}%` }} transition={{ type: 'spring', stiffness: 200, damping: 30 }} /></div>
         </div>
+        <ThemeToggle />
       </header>
       <AnimatePresence>
         {toast && (

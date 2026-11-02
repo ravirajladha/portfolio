@@ -14,7 +14,7 @@
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper: #160a10;
     --card: #21111a;
     --ink: #fbe9ef;
@@ -27,6 +27,19 @@
     color-scheme: dark;
   }
 }
+:root[data-theme="dark"] {
+  --paper: #160a10;
+  --card: #21111a;
+  --ink: #fbe9ef;
+  --muted: #b08f9b;
+  --rule: #3a2230;
+  --accent: #ff6b98;
+  --accent-ink: #1a0710;
+  --pink: #ff8fb1;
+  --heat: 255, 107, 152;
+  color-scheme: dark;
+}
+body { transition: background-color .35s ease, color .35s ease; }
 
 * { box-sizing: border-box; }
 html { scroll-padding-top: 70px; }
@@ -442,3 +455,8 @@ footer { margin-top: 96px; }
   .hud-xp { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .hud-avatar { animation: none; } }
+
+/* Theme toggle */
+.theme-toggle { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: 1px solid rgba(var(--heat), .35); background: rgba(var(--heat), .1); font-size: 1rem; cursor: pointer; overflow: hidden; transition: transform .2s; }
+.theme-toggle:hover { transform: rotate(15deg) scale(1.08); }
+.projects-page .cards, .sector-group .cards { perspective: 900px; }

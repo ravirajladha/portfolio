@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { designs, projects } from '../data/projects'
 import { Reveal, WordsIn } from '../components/Motion'
 import SystemDesign from '../components/SystemDesign'
+import { TiltCard } from '../components/Cinematic'
 
 export default function Projects() {
   useEffect(() => { document.title = 'Projects & System Design | Ravi Raj Ladha' }, [])
@@ -26,10 +27,12 @@ export default function Projects() {
             <div className="cards">
               {projects.filter(p => p.group === g).map((p, i) => (
                 <Reveal key={p.name} delay={i * 0.05}>
-                  <a className="card repo" href={p.url} target="_blank" rel="noopener">
-                    <h3>{p.name} <span aria-hidden="true">↗</span></h3>
-                    <p>{p.text}</p>
-                    <p className="tags">{p.stack}</p>
+                  <a className="repo" href={p.url} target="_blank" rel="noopener">
+                    <TiltCard className="card">
+                      <h3>{p.name} <span aria-hidden="true">↗</span></h3>
+                      <p>{p.text}</p>
+                      <p className="tags">{p.stack}</p>
+                    </TiltCard>
                   </a>
                 </Reveal>
               ))}
