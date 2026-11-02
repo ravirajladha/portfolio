@@ -67,7 +67,7 @@ export default function AttentionFigure() {
         </div>
       </div>
       <figcaption>
-        <strong>Figure 1:</strong> Self-attention, the core idea of the Transformer paper this domain is named after. Each word looks at every other word and decides what matters. Hover or tap a word; switch heads above.
+        <strong>Self-attention</strong>, the idea this domain is named after. Hover a word to see what it focuses on.
       </figcaption>
     </figure>
   )

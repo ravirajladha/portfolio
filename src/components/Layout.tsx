@@ -1,17 +1,8 @@
 import { useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router'
 import { motion, useScroll, useSpring } from 'motion/react'
+import GameNav from './GameNav'
 import { profile } from '../data/resume'
-
-const nav = [
-  { to: '/#experience', label: 'Experience' },
-  { to: '/#sectors', label: 'Sectors' },
-  { to: '/#ai', label: 'AI/ML' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/blog', label: 'Writing' },
-  { to: '/#now', label: 'Now' },
-  { to: '/#contact', label: 'Contact' },
-]
 
 export default function Layout() {
   const { pathname, hash } = useLocation()
@@ -28,12 +19,7 @@ export default function Layout() {
   return (
     <>
       <motion.div className="progress" style={{ scaleX: progress }} />
-      <header className="topbar">
-        <Link className="mark" to="/">attentionisallyouneed<span>.in</span></Link>
-        <nav aria-label="Main">
-          {nav.map(n => <Link key={n.to} to={n.to}>{n.label}</Link>)}
-        </nav>
-      </header>
+      <GameNav />
       <Outlet />
       <footer>
         <span>

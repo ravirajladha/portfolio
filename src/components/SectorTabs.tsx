@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import type { Sector } from '../data/resume'
+import { TiltCard } from './Cinematic'
 
 const ALL = 'all'
 
@@ -27,11 +28,13 @@ export default function SectorTabs({ sectors }: { sectors: Sector[] }) {
               <p className="sector-intro">{sector.intro}</p>
               <div className="cards">
                 {sector.projects.map((p, i) => (
-                  <motion.article key={p.name} className="card" initial={{ opacity: 0, y: 12, scale: 0.98 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.07, duration: 0.4 }}>
-                    <p className="scale mono">{p.scale}</p>
-                    <h3>{p.name}</h3>
-                    <p>{p.text}</p>
-                    <p className="tags">{p.stack}</p>
+                  <motion.article key={p.name} initial={{ opacity: 0, y: 12, scale: 0.98 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.07, duration: 0.4 }}>
+                    <TiltCard className="card">
+                      <p className="scale mono">{p.scale}</p>
+                      <h3>{p.name}</h3>
+                      <p>{p.text}</p>
+                      <p className="tags">{p.stack}</p>
+                    </TiltCard>
                   </motion.article>
                 ))}
               </div>
