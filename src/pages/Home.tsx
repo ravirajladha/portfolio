@@ -6,6 +6,7 @@ import { Reveal, Typed, WordsIn } from '../components/Motion'
 import { ExperienceSwitcher, Highlight, MagneticContact, NeuralNet, ScrollTimeline, StackExplode, StatTiles, Ticker, TiltCard } from '../components/Cinematic'
 import AttentionFigure from '../components/AttentionFigure'
 import SectorTabs from '../components/SectorTabs'
+import Ride from '../components/Ride'
 import type { KeyStore } from '../components/KeyboardHero'
 
 const KeyboardHero = lazy(() => import('../components/KeyboardHero'))
@@ -41,6 +42,9 @@ export default function Home() {
           <Link className="button" to="/projects">Projects</Link>
         </Reveal>
       </section>
+
+      {/* The Ride: scroll story */}
+      <Ride />
 
       {/* E2 Results */}
       <section className="paper-section"><StatTiles items={results} /></section>
