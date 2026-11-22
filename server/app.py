@@ -1,6 +1,6 @@
 """Portfolio API: page-view tracking, contact form and a private stats endpoint.
 
-Two tables, both prefixed `portfolio_` because they share a database with another app:
+Two tables in their own MySQL database (`portfolio`) on the server:
   portfolio_visits    one row per page view (no raw IP is ever stored)
   portfolio_messages  one row per contact-form submission
 

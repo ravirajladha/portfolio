@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run once on the server. Writes /etc/portfolio/portfolio.env without printing any secret.
-# Reuses the MySQL login of the Secret Haircare app; the API only creates/uses portfolio_* tables.
+# Superseded for the database part by setup-db.sh, which creates a dedicated `portfolio` database.
 set -euo pipefail
 SRC=/var/www/thesecrethaircare-v2-api/.env
 get() { sudo grep -E "^$1=" "$SRC" | head -1 | cut -d= -f2- | sed -e 's/^"//' -e 's/"$//' -e "s/^'//" -e "s/'\$//"; }
