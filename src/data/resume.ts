@@ -179,6 +179,7 @@ export const sdeJourney: JourneyChapter[] = [
       { name: 'Trueweights', what: 'Weighbridge with automatic camera capture, 100+ drivers', live: 'https://trueweights.com', code: gh('weighbridge-camera-IOT') },
       { name: 'Oodlesin Quiz', what: 'Quiz and mock-test platform, 5,000+ students', live: 'https://oodlesin.com', code: gh('oodles_files') },
       { name: 'Vendingkart', what: 'Vending-machine services company site, Next.js', live: 'https://vendingkart.com' },
+      { name: 'Nexplace Info', what: 'Company site for an IT staffing firm', live: 'https://www.nexplaceinfo.com' },
       { name: 'AdBrovz', what: 'Marketplace with product search, payments and ads', live: 'https://adbrovz.com', code: gh('adbrovz-mvc') },
       { name: 'Vishvin Stock', what: 'Smart-meter stock management for Karnataka discoms', client: 'https://vishvin.com', code: gh('VishvinStockManagement') },
       { name: 'Art of Living suite', what: 'Samruddhi assets, Pragati users, Sanidhya WhatsApp tickets', client: 'https://www.artofliving.org/in-en', code: gh('artofliving') },
