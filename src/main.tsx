@@ -8,6 +8,7 @@ import Projects from './pages/Projects'
 import Post from './pages/Post'
 import NotFound from './pages/NotFound'
 import Epoch from './pages/Epoch'
+import Admin from './pages/Admin'
 import './styles.css'
 import './design.css'
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<Post />} />
           <Route path="epoch" element={<Epoch />} />
+          <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

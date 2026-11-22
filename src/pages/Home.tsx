@@ -8,6 +8,7 @@ import AttentionFigure from '../components/AttentionFigure'
 import SectorTabs from '../components/SectorTabs'
 import Ride from '../components/Ride'
 import { Head, Section } from '../components/Section'
+import ContactForm from '../components/ContactForm'
 import type { KeyStore } from '../components/KeyboardHero'
 
 const KeyboardHero = lazy(() => import('../components/KeyboardHero'))
@@ -113,7 +114,10 @@ export default function Home() {
         <Ticker items={now} />
       </Section>
       <Section id="contact" tone="rose" band="dark" className="band-last">
-        <Head n={9} eyebrow="Say hello" title="Contact" look="line" />
+        <Head n={9} eyebrow="Say hello" title="Let's work together" look="line"
+          sub="Looking for a mentor, a developer for your web, app or AI project, a study partner for AI/ML, or hiring? Tell me a little and I will get back to you." />
+        <Reveal><ContactForm /></Reveal>
+        <p className="cf-or">or reach me directly</p>
         <Reveal><MagneticContact email={profile.email} /></Reveal>
         <Reveal className="contact-links">
           <a href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>

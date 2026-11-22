@@ -1,0 +1,20 @@
+# Portfolio API (visits + contact form) for attentionisallyouneed.in.
+# Settings come from /etc/portfolio/portfolio.env (DATABASE_URL, ADMIN_KEY, HASH_SALT).
+# nginx proxies https://attentionisallyouneed.in/api/ to this service.
+[Unit]
+Description=Portfolio API (FastAPI, uvicorn)
+After=network-online.target mysql.service
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/portfolio-api
+EnvironmentFile=/etc/portfolio/portfolio.env
+ExecStart=/opt/portfolio-api/.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8200 --workers 1 --proxy-headers --forwarded-allow-ips 127.0.0.1
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

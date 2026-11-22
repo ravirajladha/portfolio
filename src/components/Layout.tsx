@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { motion, useScroll, useSpring } from 'motion/react'
 import GameNav from './GameNav'
 import { profile } from '../data/resume'
+import { trackVisit } from '../lib/api'
 
 export default function Layout() {
   const { pathname, hash } = useLocation()
@@ -15,6 +16,9 @@ export default function Layout() {
     const id = setTimeout(() => document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'smooth' }), 50)
     return () => clearTimeout(id)
   }, [pathname, hash])
+
+  // One page view per route change (not per #section jump).
+  useEffect(() => { trackVisit(pathname) }, [pathname])
 
   return (
     <>
