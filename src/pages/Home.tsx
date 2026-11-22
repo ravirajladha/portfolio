@@ -40,6 +40,7 @@ export default function Home() {
           <a className="button primary" href="#contact">Get in touch</a>
           <a className="button" href={profile.resume} target="_blank" rel="noopener">Résumé</a>
           <Link className="button" to="/projects">Projects</Link>
+          <Link className="button" to="/epoch">📱 Epoch app</Link>
         </Reveal>
       </section>
 
@@ -65,7 +66,7 @@ export default function Home() {
       <section id="sectors" className="paper-section">
         <H n={3}>Work by sector</H>
         <Reveal><SectorTabs sectors={sectors} /></Reveal>
-        <Reveal><p className="more"><Link className="button primary" to="/projects">More projects + system designs →</Link></p></Reveal>
+        <Reveal><p className="more"><Link className="button primary" to="/projects#sde-journey">My SDE journey: every project, with live links →</Link></p></Reveal>
       </section>
 
       {/* E6 AI / ML */}

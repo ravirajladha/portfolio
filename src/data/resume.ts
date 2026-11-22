@@ -153,3 +153,68 @@ export const journey = [
   { year: '2025', title: 'Mahindra + BITS', text: 'Full-stack and an M.Tech in AI.' },
   { year: '2026', title: 'ML in production', text: 'Next stop: AI engineer →' },
 ]
+
+// "SDE journey" on the Projects page: every chapter of the software career, with live and code links.
+// Only put a `live` URL here once it has been checked to load and to belong to that client.
+const gh = (path: string) => `https://github.com/ravirajladha/${path}`
+
+export type JourneyBuild = { name: string; what: string; live?: string; client?: string; code?: string }
+export type JourneyChapter = { period: string; org: string; orgUrl?: string; role: string; text: string; builds: JourneyBuild[] }
+
+export const sdeJourney: JourneyChapter[] = [
+  {
+    period: '2021 — 22', org: 'Pyspiders', role: 'Python full-stack trainee',
+    text: 'Switched from energy engineering to code. First projects in plain PHP MVC to learn the basics properly.',
+    builds: [
+      { name: 'HelloCart', what: 'Dine-in and food-ordering site', code: gh('hellocart-php-mvc-version') },
+      { name: 'Sleep & stress test', what: 'Scored self-assessment questionnaire', code: gh('natural-sleep-stress') },
+      { name: 'Mecwintech HR', what: 'Attendance, punch-in/out and payslips', code: gh('mecwintech') },
+      { name: 'DSA in PHP', what: 'Data structures and algorithms practice', code: gh('php-dsa') },
+    ],
+  },
+  {
+    period: 'Mar 2022 — Apr 2025', org: 'KODS Technologies', orgUrl: 'https://kodstech.com', role: 'Software Developer',
+    text: '13 real-time apps for clients across e-commerce, healthcare, IoT, education and non-profits. Performer of the Year 2024–25.',
+    builds: [
+      { name: 'Trueweights', what: 'Weighbridge with automatic camera capture, 100+ drivers', live: 'https://trueweights.com', code: gh('weighbridge-camera-IOT') },
+      { name: 'Oodlesin Quiz', what: 'Quiz and mock-test platform, 5,000+ students', live: 'https://oodlesin.com', code: gh('oodles_files') },
+      { name: 'Vendingkart', what: 'Vending-machine services company site, Next.js', live: 'https://vendingkart.com' },
+      { name: 'AdBrovz', what: 'Marketplace with product search, payments and ads', live: 'https://adbrovz.com', code: gh('adbrovz-mvc') },
+      { name: 'Vishvin Stock', what: 'Smart-meter stock management for Karnataka discoms', client: 'https://vishvin.com', code: gh('VishvinStockManagement') },
+      { name: 'Art of Living suite', what: 'Samruddhi assets, Pragati users, Sanidhya WhatsApp tickets', client: 'https://www.artofliving.org/in-en', code: gh('artofliving') },
+      { name: 'Tagncash', what: 'QR-code referral cashback, 10,000+ users', code: gh('TagNCash-Web') },
+      { name: 'AVAtoms LMS', what: 'LMS with code editor, 10,000+ students', code: gh('abc-frontend-lrs') },
+      { name: 'Digital Doctor', what: 'Telemedicine with Zoom/OpenTok video consults', code: gh('Digital-Doctor-Clinic') },
+      { name: 'Medy Hospital', what: 'Hospital management, 500+ daily users', code: gh('medy') },
+      { name: 'K2K IoT Inventory', what: 'Real-time inventory from devices', code: gh('k2k-iot-frontend') },
+      { name: 'Document Vault', what: 'Digitised land-document archive for Sri Ahobila Mutt', code: gh('land-vault') },
+      { name: 'Filmox', what: 'Social network for the film industry', code: gh('social-networking-php-laravel-filmox') },
+      { name: 'Speeder logistics', what: 'Shipment booking and tracking', code: gh('speeder') },
+    ],
+  },
+  {
+    period: 'Ongoing', org: 'Secret Haircare', orgUrl: 'https://thesecrethaircare.com', role: 'Full-stack + AI',
+    text: 'A high-volume haircare store, 6,000+ orders a month, with a Claude-powered support chatbot grounded in the catalogue.',
+    builds: [
+      { name: 'thesecrethaircare.com', what: 'Laravel store, Razorpay, Shiprocket, AI chatbot', live: 'https://thesecrethaircare.com' },
+    ],
+  },
+  {
+    period: 'Jul 2025 — now', org: 'Mahindra First Choice Wheels', orgUrl: 'https://www.mahindrafirstchoice.com', role: 'Full-stack Developer',
+    text: 'Sole developer of the vehicle Pre-inspection platform: Next.js app, Fastify API, Laravel and CodeIgniter portals, plus ML for condition scoring. Hyper Helper Award from the CTO.',
+    builds: [
+      { name: 'Pre-inspection platform', what: 'Guided camera self-inspection for 6 vehicle categories', client: 'https://www.mahindrafirstchoice.com' },
+      { name: 'Vehicle scoring model', what: 'XGBoost condition score and price suggestion' },
+      { name: 'Remark NLP', what: 'Sentiment and recurring issues from inspector remarks' },
+    ],
+  },
+  {
+    period: '2025 — now', org: 'BITS Pilani + own products', role: 'M.Tech AI & ML',
+    text: 'Taking ML from notebooks to production, and shipping my own apps.',
+    builds: [
+      { name: 'Epoch', what: 'Android app: learn AI/ML one epoch a day', live: '/epoch' },
+      { name: 'E-commerce recommender', what: 'Real-time recommendations demo on Hugging Face', live: 'https://ravirajladha-seml-ecommerce-reco.hf.space' },
+      { name: 'Applied AI/ML portfolio', what: 'Coursework as runnable notebooks', code: gh('applied-ai-ml-portfolio') },
+    ],
+  },
+]

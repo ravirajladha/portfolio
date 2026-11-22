@@ -5,6 +5,7 @@ const gh = (repo: string) => `https://github.com/ravirajladha/${repo}`
 export type Repo = { name: string; group: string; stack: string; text: string; url: string }
 
 export const projects: Repo[] = [
+  { group: 'Building now', name: 'Epoch (Android app)', stack: 'Kotlin Multiplatform · Compose · FastAPI · PostgreSQL', text: 'Learn AI/ML one epoch a day: 6,393 revision questions with spaced repetition. Install the APK from the Epoch page.', url: '/epoch' },
   { group: 'Building now', name: 'Threadline', stack: 'Next.js 16 · Payload CMS 3 · PostgreSQL · TypeScript', text: 'A modern clothing store built in public, one stage at a time: catalogue, cart, checkout and a headless CMS.', url: gh('threadline') },
   { group: 'Machine learning', name: 'Applied AI/ML portfolio', stack: 'Python · Jupyter · Git LFS', text: 'M.Tech coursework as runnable notebooks: search agents, RL environments, NLP pipelines and ML for software engineering.', url: gh('applied-ai-ml-portfolio') },
   { group: 'Machine learning', name: 'Web-page phishing detection', stack: 'Python · scikit-learn', text: 'Classification models that flag phishing pages from URL and page features, compared on precision and recall.', url: gh('2025005974-ml-assignment-2-web-page-phishing-detection') },

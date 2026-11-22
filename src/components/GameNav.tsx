@@ -15,6 +15,7 @@ const levels = [
 const pages = [
   { id: '/projects', label: 'Projects', icon: '🧩', to: '/projects' },
   { id: '/blog', label: 'Blog', icon: '✍️', to: '/blog' },
+  { id: '/epoch', label: 'Epoch app', icon: '📱', to: '/epoch' },
 ]
 
 export default function GameNav() {
