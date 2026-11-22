@@ -9,6 +9,7 @@ import Post from './pages/Post'
 import NotFound from './pages/NotFound'
 import Epoch from './pages/Epoch'
 import './styles.css'
+import './design.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

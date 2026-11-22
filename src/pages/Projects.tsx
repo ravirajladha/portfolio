@@ -4,6 +4,7 @@ import { Reveal, WordsIn } from '../components/Motion'
 import SystemDesign from '../components/SystemDesign'
 import { TiltCard } from '../components/Cinematic'
 import { sdeJourney } from '../data/resume'
+import { Head, Section } from '../components/Section'
 
 const ext = (url: string) => url.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {}
 
@@ -17,8 +18,8 @@ export default function Projects() {
       <WordsIn text="Things I've built, and how they work" />
       <Reveal><p>Beyond the work in my experience section: my whole SDE journey with live links, side builds, ML coursework and a few system designs you can step through. Press play, then test yourself with the question at the end.</p></Reveal>
 
-      <section className="paper-section" id="sde-journey">
-        <Reveal><h2><span>A.0</span>SDE journey</h2></Reveal>
+      <Section id="sde-journey" tone="amber" band="dark">
+        <Head n="A.0" eyebrow="2021 to today" title="SDE journey" look="line" />
         <Reveal><p>Every chapter of my software career and what I shipped in it. <strong>Live</strong> opens the running product, <strong>Client</strong> the organisation it was built for, <strong>Code</strong> the repository.</p></Reveal>
         <ol className="sde-journey">
           {sdeJourney.map(c => (
@@ -43,15 +44,15 @@ export default function Projects() {
             </li>
           ))}
         </ol>
-      </section>
+      </Section>
 
-      <section className="paper-section" id="system-design">
-        <Reveal><h2><span>A.1</span>System design, interactive</h2></Reveal>
+      <Section id="system-design" tone="violet" band="light">
+        <Head n="A.1" eyebrow="Press play, then test yourself" title="System design" look="chip" />
         {designs.map(d => <Reveal key={d.id}><SystemDesign design={d} /></Reveal>)}
-      </section>
+      </Section>
 
-      <section className="paper-section" id="repos">
-        <Reveal><h2><span>A.2</span>Open-source projects</h2></Reveal>
+      <Section id="repos" tone="teal" band="dark">
+        <Head n="A.2" eyebrow="Code you can read" title="Open-source projects" look="num" />
         {groups.map(g => (
           <div key={g} className="sector-group">
             <Reveal><h3 className="sector-title">{g}</h3></Reveal>
@@ -70,7 +71,7 @@ export default function Projects() {
             </div>
           </div>
         ))}
-      </section>
+      </Section>
     </main>
   )
 }

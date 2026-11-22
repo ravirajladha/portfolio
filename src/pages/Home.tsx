@@ -7,13 +7,10 @@ import { ExperienceSwitcher, Highlight, MagneticContact, NeuralNet, ScrollTimeli
 import AttentionFigure from '../components/AttentionFigure'
 import SectorTabs from '../components/SectorTabs'
 import Ride from '../components/Ride'
+import { Head, Section } from '../components/Section'
 import type { KeyStore } from '../components/KeyboardHero'
 
 const KeyboardHero = lazy(() => import('../components/KeyboardHero'))
-
-const H = ({ n, children }: { n: number; children: string }) => (
-  <Reveal><h2><span>{String(n).padStart(2, '0')}</span>{children}</h2></Reveal>
-)
 
 export default function Home() {
   const keys = useRef<KeyStore>({ key: '', t: 0 })
@@ -47,31 +44,30 @@ export default function Home() {
       {/* The Ride: scroll story */}
       <Ride />
 
-      {/* E2 Results */}
-      <section className="paper-section"><StatTiles items={results} /></section>
-
-      {/* E3 Intro */}
-      <section id="intro" className="paper-section">
-        <H n={1}>About</H>
+      {/* E2 Results + E3 Intro */}
+      <Section id="intro" tone="rose" band="light">
+        <StatTiles items={results} />
+        <div className="intro-gap" />
+        <Head n={1} eyebrow="Who I am" title="About" look="chip" />
         {profile.intro.map(t => <Highlight key={t} text={t} />)}
-      </section>
+      </Section>
 
       {/* E4 Experience */}
-      <section id="experience" className="paper-section">
-        <H n={2}>Experience</H>
+      <Section id="experience" tone="amber" band="dark">
+        <Head n={2} eyebrow="Where I've worked" title="Experience" look="num" />
         <Reveal><ExperienceSwitcher jobs={experience} /></Reveal>
-      </section>
+      </Section>
 
       {/* E5 Sectors */}
-      <section id="sectors" className="paper-section">
-        <H n={3}>Work by sector</H>
+      <Section id="sectors" tone="teal" band="light">
+        <Head n={3} eyebrow="17 products, 6 industries" title="Work by sector" look="line" />
         <Reveal><SectorTabs sectors={sectors} /></Reveal>
         <Reveal><p className="more"><Link className="button primary" to="/projects#sde-journey">My SDE journey: every project, with live links →</Link></p></Reveal>
-      </section>
+      </Section>
 
       {/* E6 AI / ML */}
-      <section id="ai" className="paper-section">
-        <H n={4}>AI / ML</H>
+      <Section id="ai" tone="violet" band="dark">
+        <Head n={4} eyebrow="Models in production" title="AI / ML" look="chip" />
         <Reveal className="nn-card"><NeuralNet inputs={ai.inputs} outputs={ai.outputs} /></Reveal>
         <div className="pillars">
           {ai.pillars.map((p, i) => (
@@ -79,53 +75,52 @@ export default function Home() {
           ))}
         </div>
         <Reveal><AttentionFigure /></Reveal>
-      </section>
+      </Section>
 
       {/* E7 Stack */}
-      <section id="architecture" className="paper-section">
-        <H n={5}>Stack</H>
+      <Section id="architecture" tone="sky" band="light">
+        <Head n={5} eyebrow="Tools I reach for" title="Stack" look="num" />
         <Reveal><StackExplode layers={stack} /></Reveal>
-      </section>
+      </Section>
 
       {/* E8 Training */}
-      <section id="training" className="paper-section">
-        <H n={6}>Learning</H>
+      <Section id="training" tone="emerald" band="dark">
+        <Head n={6} eyebrow="Degrees and courses" title="Learning" look="line" />
         <ScrollTimeline items={training} />
-      </section>
+      </Section>
 
       {/* Writing */}
-      <section id="writing" className="paper-section">
-        <H n={7}>Writing</H>
+      <Section id="writing" tone="coral" band="light">
+        <Head n={7} eyebrow="One practical post a month" title="Writing" look="chip" />
         <div className="post-cards">
           {posts.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.08}>
+            <Reveal key={p.slug} delay={i * 0.06}>
               <Link to={`/blog/${p.slug}`} className="post-link">
                 <TiltCard className="post-card">
                   <span className="mono small">{formatDate(p.date)} · {p.tag}</span>
                   <strong>{p.title}</strong>
+                  <span className="post-more">Read →</span>
                 </TiltCard>
               </Link>
             </Reveal>
           ))}
         </div>
-      </section>
+      </Section>
 
-      {/* E9 Now */}
-      <section id="now" className="paper-section">
-        <H n={8}>Now</H>
-      </section>
-      <Ticker items={now} />
-
-      {/* E10 Contact */}
-      <section id="contact" className="paper-section">
-        <H n={9}>Contact</H>
+      {/* E9 Now + E10 Contact */}
+      <Section id="now" tone="rose" band="dark" className="band-join-next">
+        <Head n={8} eyebrow="This month" title="Now" look="num" />
+        <Ticker items={now} />
+      </Section>
+      <Section id="contact" tone="rose" band="dark" className="band-last">
+        <Head n={9} eyebrow="Say hello" title="Contact" look="line" />
         <Reveal><MagneticContact email={profile.email} /></Reveal>
         <Reveal className="contact-links">
           <a href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>
           <a href={profile.github} target="_blank" rel="noopener">GitHub</a>
           <a href={`tel:${profile.phone.replace(/\s/g, '')}`}>{profile.phone}</a>
         </Reveal>
-      </section>
+      </Section>
     </main>
   )
 }
